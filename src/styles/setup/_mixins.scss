@@ -1,0 +1,19 @@
+/* Breakpoint mixins */
+
+@mixin for-mobile-layout {
+  @media (max-width: $padded-break-mobile) {
+    @content;
+  }
+}
+
+@mixin for-narrow-layout {
+  @media (max-width: $padded-break-narrow) {
+    @content;
+  }
+}
+
+@mixin for-normal-layout {
+  @media (min-width: $padded-break-normal) {
+    @content;
+  }
+}

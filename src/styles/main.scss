@@ -1,0 +1,8 @@
+// basics
+@import "./basics/base.scss";
+@import "./basics/helpers";
+
+// setup
+@import "./setup/mixins.scss";
+@import "./setup/typography.scss";
+@import "./setup/variables.scss";
