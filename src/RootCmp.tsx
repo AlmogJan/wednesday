@@ -1,14 +1,16 @@
-import { AppHeader } from "./components/AppHeader";
+import { Header } from "./components/Header";
 import { Aside } from "./components/Aside";
-import { BoardIndex } from "./views/BoardIndex";
+import { Board } from "./views/Board";
 
 export function RootCmp() {
   return <div className="app-container">
     <Aside />
-    <div className="main-section-container">
-      <AppHeader />
+    <div className="container">
+      <header>
+        <Header />
+      </header>
       <main>
-        <BoardIndex />
+        <Board />
       </main>
     </div>
   </div>

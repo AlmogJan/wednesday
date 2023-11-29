@@ -1,5 +1,7 @@
+import { NavBar } from "./NavBar";
+
 export function Aside() {
     return <div>
-        Aside
+        <NavBar></NavBar>
     </div>
 }

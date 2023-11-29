@@ -1,4 +1,4 @@
-export function BoardIndex() {
+export function Board() {
     return <div>
         main
     </div>
