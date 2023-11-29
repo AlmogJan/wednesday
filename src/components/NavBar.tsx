@@ -1,5 +1,4 @@
 export function NavBar() {
-    return <div>
-        nav
+    return <div className="navbar-container">
     </div>
 }

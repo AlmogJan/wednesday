@@ -1,5 +1,4 @@
 export function Header() {
-    return <div>
-        Header
+    return <div className="header-container">
     </div>
 }

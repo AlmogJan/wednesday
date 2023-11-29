@@ -6,8 +6,21 @@ body {
   margin: 0;
   padding: 0;
 }
-main {
-  padding-inline: 16px;
+.card-container {
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  padding: 16px;
+  background-color: rgb(242, 242, 242);
+}
+.app-container {
+  border-radius: 16px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: rgb(245, 245, 245);
+}
+.board-container {
+  background-color: rgb(245, 245, 245);
+  border-radius: 0px 16px 16px 0px;
 }
 
 img {

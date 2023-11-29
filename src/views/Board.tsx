@@ -1,5 +1,4 @@
 export function Board() {
-    return <div>
-        main
+    return <div className="board-container">
     </div>
 }
