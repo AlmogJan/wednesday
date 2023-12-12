@@ -1,7 +1,10 @@
 import axios from "axios";
-import { from, map } from "rxjs"
+import { Observable, from, map } from "rxjs"
 export const httpService = {
-    get
+    get,
+    post,
+    put,
+    remove,
 }
 
 function get<T>(url: string) {
@@ -10,14 +13,20 @@ function get<T>(url: string) {
     );
 }
 
-function post() {
-
+function post<T, X>(url: string, body: T): Observable<X> {
+    return from(axios.post(url, body)).pipe(
+        map((response) => response.data as X),
+    );
 }
 
-function put() {
-
+function put<T, X>(url: string, body: T): Observable<X> {
+    return from(axios.put(url, body)).pipe(
+        map((response) => response.data as X),
+    );
 }
 
-function remove() {
-
+function remove<T>(url: string) {
+    return from(axios.delete(url)).pipe(
+        map((response) => response.data as T),
+    );
 }
