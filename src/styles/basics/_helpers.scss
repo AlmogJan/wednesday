@@ -25,6 +25,9 @@
 .align-baseline {
   align-items: baseline;
 }
+.align-end {
+  align-items: end;
+}
 
 .flex-center-center {
   display: flex;
@@ -42,4 +45,8 @@
 }
 .display-none {
   display: none;
+}
+.svg-white {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(305deg)
+    brightness(103%) contrast(101%);
 }

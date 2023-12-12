@@ -1,8 +1,19 @@
 // basics
 @import "./basics/base.scss";
 @import "./basics/helpers";
+@import "./basics/layouts";
 
 // setup
 @import "./setup/mixins.scss";
 @import "./setup/typography.scss";
 @import "./setup/variables.scss";
+
+// components
+@import "./components/Aside.scss";
+@import "./components/Header.scss";
+@import "./components/NavBar.scss";
+@import "./components/TaskPreview.scss";
+@import "./components/BasicModal.scss";
+
+//views
+@import "./views/Board.scss";

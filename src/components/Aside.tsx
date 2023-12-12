@@ -1,5 +1,4 @@
 export function Aside() {
-    return <div>
-        Aside
+    return <div className="aside-container">
     </div>
 }
