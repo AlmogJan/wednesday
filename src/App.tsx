@@ -6,7 +6,9 @@ import { taskService } from "./services/task.service";
 import { Subscription } from "rxjs";
 import { useSelector } from "react-redux";
 import { RootState } from "./stores/store";
-import { setTasks } from "./stores/task.action";
+import { setTasks } from "./stores/task/task.action";
+import { setUsers } from "./stores/user/user.action";
+import { userService } from "./services/user.service";
 
 export function App({ breakpointClass }: AppProps) {
     const subscribers: Subscription[] = [];
@@ -14,6 +16,7 @@ export function App({ breakpointClass }: AppProps) {
 
     useEffect(() => {
         subscribers.push(taskService.query().subscribe(result => { setTasks(result); }))
+        subscribers.push(userService.query().subscribe(result => { setUsers(result); }))
         return () => {
             subscribers.forEach(subscriber => subscriber.unsubscribe());
         }

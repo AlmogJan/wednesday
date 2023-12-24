@@ -1,14 +1,11 @@
 import { Uid } from "./interfaces";
-
-// export interface Task {
-
-// }
+import { Tags } from "./tags.interface";
 
 export interface Task {
     id: Uid;
     title: string;
     desc: string;
-    lastEdited: Date;
+    lastEdited: string;
     status: Status;
     tag: Tags;
     userId: Uid;
@@ -19,13 +16,27 @@ export interface TaskDto {
     desc: string;
     status: Status;
     tag: Tags;
-    userId: Uid;
-}
-
-export enum Tags {
-    Bug, Feature
 }
 
 export enum Status {
     Todo, InProgress, Done, Blocked
+}
+
+export function getDtoFromTask(task: Task | null): TaskDto {
+    if (task) {
+        const dto: TaskDto = {
+            desc: task.desc,
+            title: task.title,
+            status: task.status,
+            tag: task.tag,
+        }
+        return dto;
+    }
+    return {
+        desc: '',
+        title: '',
+        status: Status.Todo,
+        tag: Tags.Feature,
+    };
+
 }

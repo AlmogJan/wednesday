@@ -7,7 +7,6 @@ export function useBreakpoints() {
 
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isTablet = useMediaQuery(theme.breakpoints.between('md', 'lg'));
-    const isDesktop = useMediaQuery(theme.breakpoints.up('xl'));
 
     const [breakpoint, setBreakpoint] = useState(Breakpoints.Desktop);
 

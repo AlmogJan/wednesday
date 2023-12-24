@@ -1,27 +1,36 @@
-import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-export function BasicModal({ open, handleClose }: BasicModalProps) {
+import { AddEditTaskModal } from './AddEditTaskModal';
+import { IconButton } from '@mui/material';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import { Task } from '../interfaces/task.interface';
+import { ModalState } from '../interfaces/interfaces';
+import { ReadOnlyModal } from './ReadOnlyModal';
+import { useEffect } from 'react';
+export function BasicModal({ open, handleClose, task, modalState }: BasicModalProps) {
+    useEffect(() => {
+        console.log(open);
+    }, [open])
     return (
-        <div>
-            <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-                hideBackdrop={true}
-            >
-                <div className='modal-box'>
-                    <button onClick={handleClose}>X</button>
-                    <Typography id="modal-modal-title" variant="h6" component="h2">
-                        Text in a modal
-                    </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-                    </Typography>
-                </div>
-            </Modal>
-        </div>
+        <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+            hideBackdrop={true}
+        >
+            <div className='modal-box'>
+                <IconButton onClick={() => {
+                    handleClose()
+                    console.log("ho");
+
+                }}>
+                    <CloseRoundedIcon></CloseRoundedIcon>
+                </IconButton>
+                {modalState === ModalState.AddEdit && <AddEditTaskModal task={task}></AddEditTaskModal>}
+                {modalState === ModalState.ReadOnly && <ReadOnlyModal task={task}></ReadOnlyModal>}
+            </div>
+        </Modal>
     );
 }
 
-export type BasicModalProps = { open: boolean, handleClose: () => void }
+export type BasicModalProps = { open: boolean, handleClose: () => void, task: Task | null, modalState: ModalState }

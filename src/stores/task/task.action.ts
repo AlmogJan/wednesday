@@ -1,5 +1,5 @@
-import { Task } from "../interfaces/task.interface"
-import { store } from "./store"
+import { Task } from "../../interfaces/task.interface"
+import { store } from "../store"
 import { SET_TASKS } from "./task.reducer"
 
 export function setTasks(tasks: Task[]) {

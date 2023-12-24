@@ -1,8 +1,12 @@
+import moment from "moment"
+
 export const utilService = {
     makeId,
     makeLorem,
     getRandomIntInclusive,
     getTxtToShow,
+    stringAvatar,
+    formatRelativeTime,
 }
 
 function makeId(length = 6) {
@@ -41,3 +45,26 @@ function getTxtToShow(txt: string, length: number) {
     }
 }
 
+function stringAvatar(name: string) {
+    return {
+        children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+    };
+}
+
+function formatRelativeTime(date: Date) {
+    const now = new Date();
+
+    // Check if the date is today
+    if (date.getDate() === now.getDate() && date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear()) {
+        return moment(date).format('HH:mm');
+    }
+
+    // Check if 24 hours have passed
+    const twentyFourHoursAgo = new Date(now.getTime() - (24 * 60 * 60 * 1000));
+    if (date > twentyFourHoursAgo) {
+        return moment(date).format('DD MMM');
+    }
+
+    // Display MMM YYYY for dates more than a year ago
+    return moment(date).format('MMM YYYY');
+}
